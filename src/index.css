@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;;
+}
+/* ====================================== NAVBAR ======================================== */
+nav{
+  width: 100%;
+  height: 10vh;
+  background-color: #E0D834;
+  box-shadow: 0 0 10px black;
+}
+
+.nav-content{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-content .left-navbar{
+  display: flex;
+  align-items: center;
+  max-height: 100%;
+}
+
+.nav-content .left-navbar h1{
+  margin-right: 60px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.nav-content .left-navbar ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content .left-navbar li{
+  margin-right: 40px;
+  user-select: none;
+  cursor: pointer;
+  color: rgb(0, 0, 0, 0.7);
+  font-weight: 500;
+  transition: all 0.1s ease-in;
+}
+
+.nav-content .left-navbar li :hover{
+  color: rgb(0, 0, 0);
+}
+
+.nav-content .right-navbar{
+  display: flex;
+  align-items: center;
+}
+
+.nav-content .right-navbar .delete-all-container{
+  background-color: #E02639;
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-content .right-navbar .about-me-container{
+  background-color: #26A2E0;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease-in-out;
+  font-weight: 500;
+}
+
+.nav-content .right-navbar .about-me-container:hover{
+  box-shadow: 0 0 5px black;
+}
+
+.nav-content .right-navbar .about-me-container p{
+  margin-right: 5px;
+}
+
+/* ====================================== MAIN ======================================== */
+main{
+  background-color: #615F24;
+  height: 90vh;
+  padding: 20px 5%;
+  position: relative;
+  overflow-y: scroll;
+}
+
+/* ====================================== Notes grid ======================================== */
+.notes-grid{
+  display: grid;
+  grid-template-columns: repeat( 4, 1fr ) ;
+  grid-gap: 20px;
+}
+
+/* ====================================== Note item ======================================== */
+.note-item{
+  height: 200px;
+  box-shadow: -5px 5px 10px rgb(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.note-item .header-note{
+  width: 100%;
+  height: 20%;
+  max-height: 20%;
+  overflow: hidden;
+  background-color: #EDB705;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.note-item .header-note button{
+  background-color: #E02639;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-self: center;
+  padding: 3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.note-item .header-note button span{
+  font-size: 15px;
+  color: white;
+}
+
+.note-item .body-note{
+  background-color: #E1D90F;
+  height: 80%;
+  padding: 10px;
+}
+
+.note-item .edit-button{
+  position: absolute;
+  top: 78%;
+  left: 85%;
+  transform: translate( -50% -50% );
+  background-color: #66ED05;
+  border-radius: 50%;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.note-item .edit-button span{
+  color: white;
+  font-size: 25px;
+}
+
+/* ====================================== New note btn ======================================== */
+
+.new-note-btn{
+  background-color: rgb(102, 237, 5, 0.6);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 100ms ease-in-out;
+  position: fixed;
+  transform: translate( -50%, -50% );
+  bottom: 5%;
+  right: 0;
+}
+
+.new-note-btn span{
+  color: white;
+  font-size: 4em;
+}
+
+.new-note-btn:hover{
+  background-color: rgb(102, 237, 5);
+}
+
+/* ====================================== popup new Note ======================================== */
+.new-note-popup{
+  position: fixed;
+  transform: translate(-50%,-50%);
+  top: 40%;
+  left: 50%;
+  width: 60vw;
+  height: 70vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms ease-in;
+  background-color: #EDB705;
+  z-index: 20;
+}
+
+.new-note-popup-show{
+  top: 50% !important;
+  visibility: visible;
+  opacity: 1;
+}
+
+.new-note-popup form{
+  width: 100%;
+  height: 100%;
+}
+
+.new-note-popup .header-note{
+  width: 100%;
+  background-color: #EDB705;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-note-popup .header-note input{
+  width: 93%;
+  height: 65%;
+  font-size: 2.5em;
+  background-color: rgb(255, 255, 255, .5);
+  border: none;
+  text-align: center;
+}
+
+.new-note-popup .header-note input:focus{
+  outline: none;
+}
+
+.new-note-popup .body-note{
+  background-color: #E1D90F;
+  height: 80%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.new-note-popup .body-note textarea{
+  width: 98%;
+  max-width: 98%;
+  height: 95%;
+  max-height: 95%;
+  background-color: rgb(255, 255, 255, .5);
+  border: none;
+  text-align: initial;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.new-note-popup .body-note textarea:focus{
+  outline: none;
+}
+
+/* ====================================== popup buttons ======================================== */
+/* ====================================== choose color ======================================== */
+
+.choose-color-container{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 98%;
+  left: 10%;
+  padding: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: #66ED05;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms ease-in-out;
+  z-index: 40;
+}
+
+.choose-color-container:hover{
+  box-shadow: 0 0 5px blaCK;
+}
+
+.choose-color-container span{
+  font-size: 3.5em;
+  color: white;
+}
+
+.color-input{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 98%;
+  left: 10%;
+  transition: all 200ms ease-in-out;
+  z-index: 30;
+}
+
+.color-show {
+  top:84% !important;
+}
+
+/* ====================================== save button ======================================== */
+.save-container{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 98%;
+  left: 90%;
+  padding: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: #66ED05;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms ease-in-out;
+}
+
+.save-container:hover{
+  box-shadow: 0 0 5px blaCK;
+}
+
+.save-container span{
+  font-size: 3.5em;
+  color: white;
+}
+
+/* ====================================== close button ======================================== */
+.close-container-popup{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 0%;
+  right: -4%;
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #E02639;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 200ms ease-in-out;
+}
+
+.close-container-popup:hover{
+  box-shadow: 0 0 5px blaCK;
+}
+
+.close-container-popup span{
+  color: white;
+  font-size: 2em;
+}
+
+/* ====================================== cover-popup ======================================== */
+.cover-popup{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.7);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms ease-in;
+}
+
+.cover-popup-show{
+  visibility: visible;
+  opacity: 1;
+}
