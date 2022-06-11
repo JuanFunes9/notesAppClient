@@ -9,7 +9,7 @@ const NotesGrid = ({ notes, setNotes }) => {
       {
         notes.map( (note, index) => {
           return(
-            <NoteItem note={ note } setNotes={ setNotes } key={ 'a' + note._id } index={ index }/>
+            <NoteItem note={ note } setNotes={ setNotes } key={ index } index={ index } />
           )
         })
       }

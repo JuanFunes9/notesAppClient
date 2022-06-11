@@ -92,6 +92,96 @@ nav{
 .nav-content .right-navbar .about-me-container p{
   margin-right: 5px;
 }
+/* ====================================== ToggleInfo ======================================== */
+.toggle-info{
+  position: fixed;
+  top: 0;
+  left: -45%;
+  width: 40vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 20;
+  padding: 20px;
+  background-color: #E1D90F;
+  transition: all 300ms ease-in;
+}
+
+.toggle-info-show{
+  left: 0;
+}
+
+.toggle-info .header-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header-content .img-container{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: all 100ms ease-in;
+}
+
+.header-content .img-container img{
+  width: 140%;
+  height: 100%;
+  transform: translateX(-40px);
+}
+
+.header-content .info-container{
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.header-content .info-container .info{
+  margin: 20px 0;
+}
+
+.links i{
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.header-content .img-container:hover> .header-content .info-container{
+  background-color: black;
+}
+
+.header-content .img-container:hover{
+  cursor: pointer;
+}
+
+.close-toggle{
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tecno{
+  width: 80%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.tecno img{
+  width: 100%;
+  height: 100%;
+}
+
+.info-app{
+  margin: 40px 0;
+  text-align: center;
+}
+
+.info-app h4{
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
 
 /* ====================================== MAIN ======================================== */
 main{
@@ -144,7 +234,7 @@ main{
   color: white;
 }
 
-.note-item .body-note{
+.note-item .body-note-item{
   background-color: #E1D90F;
   height: 80%;
   padding: 10px;
@@ -217,12 +307,12 @@ main{
   opacity: 1;
 }
 
-.new-note-popup form{
+form{
   width: 100%;
   height: 100%;
 }
 
-.new-note-popup .header-note{
+.header-note{
   width: 100%;
   background-color: #EDB705;
   height: 20%;
@@ -231,7 +321,7 @@ main{
   align-items: center;
 }
 
-.new-note-popup .header-note input{
+.header-note input{
   width: 93%;
   height: 65%;
   font-size: 2.5em;
@@ -240,11 +330,11 @@ main{
   text-align: center;
 }
 
-.new-note-popup .header-note input:focus{
+.header-note input:focus{
   outline: none;
 }
 
-.new-note-popup .body-note{
+.body-note{
   background-color: #E1D90F;
   height: 80%;
   padding: 10px;
@@ -254,7 +344,7 @@ main{
   padding: 10px 20px;
 }
 
-.new-note-popup .body-note textarea{
+.body-note textarea{
   width: 98%;
   max-width: 98%;
   height: 95%;
@@ -266,7 +356,7 @@ main{
   font-size: 1.5em;
 }
 
-.new-note-popup .body-note textarea:focus{
+.body-note textarea:focus{
   outline: none;
 }
 
@@ -385,3 +475,25 @@ main{
   visibility: visible;
   opacity: 1;
 }
+
+/* ====================================== edit-popup ======================================== */
+.edit-popup{
+  background-color: white;
+  width: 60vw;
+  height: 70vh;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  top: 40%;
+  left: 50%;
+  z-index: 20;
+  transition: all 250ms ease-in;
+}
+
+.edit-popup-show{
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+
